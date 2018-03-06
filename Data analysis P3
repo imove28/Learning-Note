@@ -1,0 +1,7 @@
+Data analysis P3
+Reference: https://github.com/ShiChJ/DAND-QA/tree/master/Intro-DataAnalysis
+pandas.to_datetime (Convert argument to datetime.)
+
+final_month = pd.Timestamp('2018-02-01')
+df_final_month = df[df['week'] >= final_month]
+df_final_month.iloc[:,1:].sum().argmax() #从第一列开始取每列的合，返回最大值
