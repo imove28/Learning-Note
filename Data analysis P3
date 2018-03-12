@@ -8,3 +8,5 @@ df_final_month.iloc[:,1:].sum().argmax() #从第一列开始取每列的合，�
 
 <count duplicates>
 sum(df.duplicated())
+
+type(df['fixed_acidity'][0])
