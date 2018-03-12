@@ -10,3 +10,15 @@ df_final_month.iloc[:,1:].sum().argmax() #从第一列开始取每列的合，�
 sum(df.duplicated())
 
 type(df['fixed_acidity'][0])
+
+(1)
+import numpy as np
+a = np.random.random(int(1e8))
+import time
+start = time.time()
+sum(a) / len(a)
+print(time.time() - start, 'seconds')
+(2)
+start = time.time()
+np.mean(a)
+print(time.time() - start, 'seconds')
