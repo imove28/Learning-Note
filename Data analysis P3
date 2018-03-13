@@ -22,3 +22,11 @@ print(time.time() - start, 'seconds')
 start = time.time()
 np.mean(a)
 print(time.time() - start, 'seconds')
+
+# 为红葡萄酒数据框创建颜色数组
+color_red = np.repeat('red',red_df.shape[0])
+将名为 ‘颜色’ 的新列设置到适当数组，将数组添加到红葡萄酒和白葡萄酒数据框中。下面的框是在红葡萄酒数据框中添加数组。
+red_df['color'] = color_red
+red_df.head()
+The shape attribute for numpy arrays returns the dimensions of the array. If Y has n rows and m columns, 
+then Y.shape is (n,m). So Y.shape[0] is n.
