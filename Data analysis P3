@@ -30,3 +30,5 @@ red_df['color'] = color_red
 red_df.head()
 The shape attribute for numpy arrays returns the dimensions of the array. If Y has n rows and m columns, 
 then Y.shape is (n,m). So Y.shape[0] is n.
+
+df.isnull().sum()
