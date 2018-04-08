@@ -35,5 +35,12 @@ df.isnull().sum()
 
 df_all = df08.append(df18)
 
+# 寻找unique值
 for col in df_18.columns:
     print('{} : {}'.format(col, len(df_18[col].dropna().unique())))
+
+# 保存新数据集，供下一段使用
+df_08.to_csv('data_08.csv', index=False)
+
+# 重命名
+red_df.rename(index = str, columns = {'total_sulfur-dioxide': 'total_sulfur_dioxide'},inplace = True)
