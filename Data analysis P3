@@ -32,3 +32,5 @@ The shape attribute for numpy arrays returns the dimensions of the array. If Y h
 then Y.shape is (n,m). So Y.shape[0] is n.
 
 df.isnull().sum()
+
+df_all = df08.append(df18)
