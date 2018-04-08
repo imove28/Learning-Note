@@ -51,5 +51,21 @@ df_08.rename(columns=lambda x: x.strip().lower().replace(" ", "_"), inplace=True
 # 将销售区域重命名为特定区域
 df_08.rename(index = str, columns = {'Sales Area':'Cert Region'}, inplace = True)
 
+# 去除空格引数指定
+>>> 'www.example.com'.strip('cmowz.')
+'example'
 
+# 去除空格引数なし
+>>> '     www.example.com    '.strip()
+'www.example.com'
 
+# 去除\n
+>>> print '\nhello'
+
+hello
+# \nも除去される
+>>> print '\nhello'.strip()
+hello
+
+# 验证是否所有列的标题都相同
+(df_08.columns == df_18.columns).all()
