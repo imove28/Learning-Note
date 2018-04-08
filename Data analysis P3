@@ -44,3 +44,12 @@ df_08.to_csv('data_08.csv', index=False)
 
 # 重命名
 red_df.rename(index = str, columns = {'total_sulfur-dioxide': 'total_sulfur_dioxide'},inplace = True)
+
+# 在 2008 数据集中用下划线和小写标签代替空格
+df_08.rename(columns=lambda x: x.strip().lower().replace(" ", "_"), inplace=True)
+
+# 将销售区域重命名为特定区域
+df_08.rename(index = str, columns = {'Sales Area':'Cert Region'}, inplace = True)
+
+
+
