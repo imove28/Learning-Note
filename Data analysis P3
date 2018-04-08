@@ -34,3 +34,6 @@ then Y.shape is (n,m). So Y.shape[0] is n.
 df.isnull().sum()
 
 df_all = df08.append(df18)
+
+for col in df_18.columns:
+    print('{} : {}'.format(col, len(df_18[col].dropna().unique())))
