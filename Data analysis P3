@@ -69,3 +69,6 @@ hello
 
 # 验证是否所有列的标题都相同
 (df_08.columns == df_18.columns).all()
+
+# 从 2018 数据集中丢弃列
+df_18.drop(['Stnd','Stnd Description','Underhood ID','Comb CO2'], axis=1, inplace=True)
