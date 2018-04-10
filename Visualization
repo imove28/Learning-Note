@@ -1,0 +1,26 @@
+# load datasets
+import pandas as pd
+df_08 = pd.read_csv('clean_08.csv')
+df_18 = pd.read_csv('clean_18.csv')
+
+df_08.columns
+Index(['model', 'displ', 'cyl', 'trans', 'drive', 'fuel', 'veh_class',
+       'air_pollution_score', 'city_mpg', 'hwy_mpg', 'cmb_mpg',
+       'greenhouse_gas_score', 'smartway'],
+      dtype='object')
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+fig_dspl, axes_dspl = plt.subplots(nrows=1, ncols=2, figsize=(9, 4))
+sns.distplot(df_08['displ'], ax = axes_dspl[0])
+_ = axes_dspl[0].set_title('08')
+sns.distplot(df_18['displ'], ax = axes_dspl[1])
+_ = axes_dspl[1].set_title('18')
+
+
+fig_mpg, axes_mpg = plt.subplots(nrows=1, ncols=2, figsize=(9, 4))
+sns.distplot(df_08['cmb_mpg'].dropna(), ax = axes_mpg[0])
+_ = axes_mpg[0].set_title('08')
+sns.distplot(df_18['cmb_mpg'].dropna(), ax = axes_mpg[1])
+_ = axes_mpg[1].set_title('18')
