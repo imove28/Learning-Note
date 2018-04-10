@@ -6,11 +6,13 @@ final_month = pd.Timestamp('2018-02-01')
 df_final_month = df[df['week'] >= final_month]
 df_final_month.iloc[:,1:].sum().argmax() #从第一列开始取每列的合，返回最大值
 
-<count duplicates>
+# 重复数据查询<count duplicates>
 sum(df.duplicated())
 
+# 详细数据类型
 type(df['fixed_acidity'][0])
 
+# 时间转换
 (1)
 import numpy as np
 a = np.random.random(int(1e8))
@@ -31,8 +33,10 @@ red_df.head()
 The shape attribute for numpy arrays returns the dimensions of the array. If Y has n rows and m columns, 
 then Y.shape is (n,m). So Y.shape[0] is n.
 
+# 查找缺少值的合计
 df.isnull().sum()
 
+# 合并两个dataframe
 df_all = df08.append(df18)
 
 # 寻找unique值
@@ -73,7 +77,7 @@ hello
 # 从 2018 数据集中丢弃列
 df_18.drop(['Stnd','Stnd Description','Underhood ID','Comb CO2'], axis=1, inplace=True)
 
-# 检查 2008 cyl 列的值数量
+# 检查 2008 cyl列的值数量 按各cyl检查
 df_08['cyl'].value_counts()
 (6 cyl)     409
 (4 cyl)     283
@@ -85,13 +89,15 @@ df_08['cyl'].value_counts()
 (16 cyl)      1
 Name: cyl, dtype: int64
 
-# change type
+# 更换数据类型(1)change type(1)
 df['column'] = df['column'].astype(int)
 
-pandas.to_numeric(arg, errors='raise', downcast=None)[source]
+# 更换数据类型(2)change type(to float)
+1.pandas.to_numeric(arg, errors='raise', downcast=None)[source]
+2.pd.to_numeric(df_08['air_pollution_score'])
 Convert argument to a numeric type.
 
-# 首先，获取 2008 年的所有混合动力,查找带 / 的行
+# 获取 2008 年的所有混合动力,查找带 / 的行
 hb_08 = df_08[df_08['fuel'].str.contains('/')]
 hb_08
 
