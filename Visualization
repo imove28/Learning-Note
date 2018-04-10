@@ -24,3 +24,10 @@ sns.distplot(df_08['cmb_mpg'].dropna(), ax = axes_mpg[0])
 _ = axes_mpg[0].set_title('08')
 sns.distplot(df_18['cmb_mpg'].dropna(), ax = axes_mpg[1])
 _ = axes_mpg[1].set_title('18')
+
+
+fig_dspl_mpg, axes_dspl_mpg = plt.subplots(nrows=1, ncols=2, figsize=(9, 4))
+sns.regplot(x = df_08['cmb_mpg'],  y = df_08['displ'], ax = axes_dspl_mpg[0])
+_ = axes_dspl_mpg[0].set_title('08')
+sns.regplot(x = df_18['cmb_mpg'],  y = df_18['displ'], ax = axes_dspl_mpg[1])
+_ = axes_dspl_mpg[1].set_title('18')
