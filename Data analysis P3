@@ -121,3 +121,6 @@ df_18 = df_18.append(new_rows, ignore_index=True)
 
 # 检查是否已删除
 df_18[df_18['fuel'].str.contains('/')]
+
+# 输出dataframe的两列
+df_0818 = df_combined[['model_2008','model_2018']]
