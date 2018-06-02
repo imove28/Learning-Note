@@ -2,3 +2,34 @@ SELECT orders.*
 FROM orders
 JOIN accounts
 ON orders.account_id = accounts.id;
+
+
+1.为与客户名称 Walmart 相关的所有 web_events 创建一个表格。
+表格应该包含三列：primary_poc、事件时间和每个事件的渠道。此外，你可以选择添加第四列，确保仅选中了 Walmart 事件。
+SELECT a.primary_poc, w.occurred_at, w.channel, a.name, a.name
+FROM web_events as w
+JOIN accounts as a
+ON w.account_id = a.id
+WHERE a.name = 'Walmart';
+
+2.为每个销售代表对应的区域以及相关的客户创建一个表格，最终表格应该包含三列：区域名称、销售代表名称，以及客户名称。
+根据客户名称按字母顺序 (A-Z) 排序。
+SELECT r.name region, s.name rep, a.name account
+FROM sales_reps s
+JOIN region r
+ON s.region_id = r.id
+JOIN accounts a
+ON a.sales_rep_id = s.id
+ORDER BY a.name;
+
+3.提供每个订单的每个区域名称，以及客户名称和订单的单价 (total_amt_usd/total)。
+最终表格应该包含三列：区域名称、客户名称和单价。少数几个客户的总订单数为 0，因此我除以的是 (total + 0.01) 以确保没有除以 0。
+SELECT r.name region, a.name account,
+o.total_amt_usd/(o.total + 0.01) unit_price
+FROM region r
+JOIN sales_reps s
+ON s.region_id = r.id
+JOIN accounts a
+ON a.sales_rep_id = s.id
+JOIN orders o
+ON o.account_id = a.id;
