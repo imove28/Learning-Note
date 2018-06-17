@@ -124,3 +124,28 @@ df_18[df_18['fuel'].str.contains('/')]
 
 # 输出dataframe的两列
 df_0818 = df_combined[['model_2008','model_2018']]
+
+# Get dataframe with all records from experiment group
+experiment_df = df.query('group == "experiment"')
+
+# Compute click through rate for experiment group
+experiment_ctr = experiment_df.query('action == "enroll"').count()[0]/experiment_df.query('action == "view"').count()[0]
+
+# Generate a random Dataframe
+import pandas as pd
+import numpy as np
+>>> df = pd.DataFrame(np.random.randn(50, 4), columns=list('ABCD'))
+>>> df.head()
+          A         B         C         D
+0  0.016443 -2.318952 -0.566372 -1.028078
+1 -1.051921  0.438836  0.658280 -0.175797
+2 -1.243569 -0.364626 -0.215065  0.057736
+3  1.768216  0.404512 -0.385604 -1.457834
+4  1.072446 -1.137172  0.314194 -0.046661
+
+# Generate a defined Dataframe
+x = pd.Series(np.array([15, 4, 3, 8, 15, 22, 7, 9, 2, 3, 3, 12, 6]))
+
+#reading_time = views.grouby(['id','group'])['duration'].mean()
+
+#reading_time = views.grouby(['id','group'])['duration'].sum()
