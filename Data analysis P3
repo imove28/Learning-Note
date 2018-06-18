@@ -149,3 +149,14 @@ x = pd.Series(np.array([15, 4, 3, 8, 15, 22, 7, 9, 2, 3, 3, 12, 6]))
 #reading_time = views.grouby(['id','group'])['duration'].mean()
 
 #reading_time = views.grouby(['id','group'])['duration'].sum()
+
+#在python里拟合回归线
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+df = pd.read_csv('./house_price_area_only.csv')
+df.head()
+df('intercept') = 1
+lm = sm.OSL(df['price'],df(['intercept','area']) # ordinary least squares
+results= lm.fit()
+results.summary()
