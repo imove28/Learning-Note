@@ -162,3 +162,5 @@ results= lm.fit()
 results.summary()
 
 seaborn.pairplot(df[['area','bedrooms','bathrooms']]);
+
+df.fillna(df.mean())
